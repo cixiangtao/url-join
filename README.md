@@ -194,21 +194,9 @@ const mergedUrl = urlJoin(existingQuery, { query: { page: 2, limit: 20 } })
 // => 'api/search?sort=date&page=2&limit=20'
 ```
 
-## Comparison with Other Libraries
-
-| Feature | @anys/url-join | url-join | proper-url-join |
-|---------|----------------|----------|------------------|
-| TypeScript | ✅ | ❌ | ❌ |
-| Auto filter null/undefined | ✅ | ❌ | ✅ |
-| Protocol preservation | ✅ | ✅ | ✅ |
-| Query parameter support | ✅ | ❌ | ❌ |
-| Query encoding | ✅ | ❌ | ❌ |
-| Query merging | ✅ | ❌ | ❌ |
-| Configurable options | ✅ | ❌ | ✅ |
-| Zero dependencies | ✅ | ✅ | ✅ |
-| Tree shakable | ✅ | ❌ | ✅ |
-
 ## Development
+
+Use Node.js 24 and pnpm 11. The exact versions are declared in `.nvmrc` and `package.json`.
 
 ```bash
 # Install dependencies
@@ -228,8 +216,13 @@ pnpm lint
 
 # Type check
 pnpm type-check
+
+# Run the complete release gate
+pnpm release:check
 ```
+
+Releases are created from `master` with `pnpm release`. The release command runs the complete quality gate, creates and pushes the release commit and tag, publishes the package to npm, and creates the matching GitHub Release.
 
 ## License
 
-MIT © [anys](https://github.com/anys)
+MIT © [cixiangtao](https://github.com/cixiangtao)
