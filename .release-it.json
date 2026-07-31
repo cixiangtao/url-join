@@ -2,18 +2,20 @@
   "git": {
     "commitMessage": "chore: release v${version}",
     "tagName": "v${version}",
-    "requireCleanWorkingDir": true
+    "requireCleanWorkingDir": true,
+    "requireBranch": "master",
+    "requireCommits": true
   },
   "npm": {
-    "publish": true,
-    "publishPath": "."
+    "publish": false
   },
   "github": {
     "release": true,
-    "releaseName": "Release v${version}"
+    "releaseName": "Release v${version}",
+    "autoGenerate": true
   },
   "hooks": {
-    "before:init": ["pnpm lint", "pnpm type-check", "pnpm test"],
-    "after:bump": "pnpm build"
+    "before:init": "pnpm release:check",
+    "after:git:release": "npm publish --access public"
   }
 }
