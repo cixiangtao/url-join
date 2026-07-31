@@ -48,12 +48,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/anys/url-join.git"
+    "url": "git+https://github.com/cixiangtao/url-join.git"
   },
   "bugs": {
-    "url": "https://github.com/anys/url-join/issues"
+    "url": "https://github.com/cixiangtao/url-join/issues"
   },
-  "homepage": "https://github.com/anys/url-join#readme",
+  "homepage": "https://github.com/cixiangtao/url-join#readme",
   "publishConfig": {
     "access": "public"
   }
