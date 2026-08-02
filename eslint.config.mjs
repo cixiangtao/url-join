@@ -4,11 +4,11 @@ import { defineConfig } from 'eslint/config'
 
 export default defineConfig([
   {
-    ignores: ['coverage/**', 'dist/**', 'node_modules/**']
+    ignores: ['coverage/**', 'dist/**', 'pages-dist/**', 'node_modules/**']
   },
   js.configs.recommended,
   {
-    files: ['src/**/*.ts'],
+    files: ['src/**/*.ts', 'site/src/**/*.ts'],
     languageOptions: {
       parser: tsParser,
       ecmaVersion: 2020,
@@ -18,6 +18,19 @@ export default defineConfig([
       'no-unused-vars': 'off',
       'no-redeclare': 'off',
       'prefer-const': 'error'
+    }
+  },
+  {
+    files: ['site/src/**/*.ts'],
+    languageOptions: {
+      globals: {
+        document: 'readonly',
+        navigator: 'readonly',
+        window: 'readonly'
+      }
+    },
+    rules: {
+      'no-undef': 'off'
     }
   }
 ])

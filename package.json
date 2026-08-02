@@ -17,14 +17,17 @@
   ],
   "scripts": {
     "build": "tsup",
+    "build:site": "vite build",
     "dev": "tsup --watch",
+    "dev:site": "vite",
+    "preview:site": "vite preview",
     "test": "vitest --watch=false",
     "test:coverage": "vitest --coverage",
-    "lint": "eslint src --ext .ts",
-    "lint:fix": "eslint src --ext .ts --fix",
-    "type-check": "tsc --noEmit",
+    "lint": "eslint src site/src --ext .ts",
+    "lint:fix": "eslint src site/src --ext .ts --fix",
+    "type-check": "tsc --noEmit && tsc -p site/tsconfig.json",
     "prepublishOnly": "pnpm build",
-    "release:check": "pnpm lint && pnpm type-check && pnpm test && pnpm build && npm pack --dry-run",
+    "release:check": "pnpm lint && pnpm type-check && pnpm test && pnpm build && pnpm build:site && npm pack --dry-run",
     "release:dry": "release-it --dry-run",
     "release": "release-it"
   },
@@ -50,6 +53,7 @@
     "release-it": "21.0.0",
     "tsup": "8.5.1",
     "typescript": "6.0.3",
+    "vite": "8.2.0",
     "vitest": "4.1.10"
   },
   "repository": {
@@ -59,7 +63,7 @@
   "bugs": {
     "url": "https://github.com/cixiangtao/url-join/issues"
   },
-  "homepage": "https://github.com/cixiangtao/url-join#readme",
+  "homepage": "https://cixiangtao.github.io/url-join/",
   "publishConfig": {
     "access": "public"
   }

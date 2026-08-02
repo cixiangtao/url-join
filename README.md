@@ -2,6 +2,8 @@
 
 A TypeScript utility for joining URL segments with automatic filtering of null/undefined values.
 
+[Try the interactive demo](https://cixiangtao.github.io/url-join/) to explore URL segments, query parameters, normalization, and trailing slashes in the browser.
+
 ## Features
 
 - 🚀 **TypeScript First**: Written in TypeScript with full type support
@@ -97,6 +99,8 @@ urlJoin('api', 'users')
 ```
 
 ## API
+
+The [GitHub Pages playground](https://cixiangtao.github.io/url-join/) runs the package's real implementation and updates its output and TypeScript snippet as you edit.
 
 ### `urlJoin(...segments, options?)`
 
