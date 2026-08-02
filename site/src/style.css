@@ -1,16 +1,16 @@
 :root {
-  color-scheme: dark;
-  --background: #090c10;
-  --surface: #0f141a;
-  --raised: #151b22;
-  --border: #2b343e;
-  --border-strong: #3a4652;
-  --text: #f4f7f9;
-  --secondary: #a9b4bf;
-  --muted: #768391;
-  --accent: #68e38b;
-  --accent-ink: #06140b;
-  --danger: #ff7b72;
+  color-scheme: light;
+  --background: #f7f9f7;
+  --surface: #ffffff;
+  --raised: #f0f4f1;
+  --border: #dce4df;
+  --border-strong: #bdc9c1;
+  --text: #17211b;
+  --secondary: #48584e;
+  --muted: #637369;
+  --accent: #0f7a3f;
+  --accent-ink: #ffffff;
+  --danger: #b42318;
   --max-width: 1180px;
   font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-synthesis: none;
@@ -22,7 +22,7 @@ body {
   min-width: 320px;
   margin: 0;
   color: var(--text);
-  background: linear-gradient(rgba(255,255,255,.021) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.021) 1px, transparent 1px), var(--background);
+  background: linear-gradient(rgba(23,33,27,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(23,33,27,.035) 1px, transparent 1px), var(--background);
   background-size: 40px 40px;
   line-height: 1.6;
 }
@@ -31,7 +31,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 button { color: inherit; }
 a { color: inherit; text-decoration: none; }
 code, pre, .install-command, .api-signature { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; }
-:focus-visible { outline: 3px solid #a6f4bc; outline-offset: 3px; }
+:focus-visible { outline: 3px solid #168548; outline-offset: 3px; }
 
 .skip-link {
   position: fixed;
@@ -122,7 +122,7 @@ code, pre, .install-command, .api-signature { font-family: "SFMono-Regular", Con
   height: 7px;
   background: var(--accent);
   border-radius: 50%;
-  box-shadow: 0 0 14px rgba(104,227,139,.65);
+  box-shadow: 0 0 0 4px rgba(15,122,63,.1);
 }
 .hero h1 {
   margin: 24px 0 26px;
@@ -146,7 +146,7 @@ code, pre, .install-command, .api-signature { font-family: "SFMono-Regular", Con
 }
 .button:active, .install-command:active, .copy-button:active, .text-button:active { transform: scale(.98); }
 .primary { color: var(--accent-ink); background: var(--accent); border: 1px solid var(--accent); font-weight: 720; }
-.primary:hover { background: #84eda0; border-color: #84eda0; }
+.primary:hover { background: #096b35; border-color: #096b35; }
 .secondary { background: transparent; border: 1px solid var(--border-strong); font-weight: 650; }
 .secondary:hover { background: var(--raised); }
 .install-command { gap: 9px; color: var(--secondary); background: var(--surface); border: 1px solid var(--border); font-size: 13px; }
@@ -175,7 +175,7 @@ main > section:not(.hero) { padding-block: 112px; border-top: 1px solid var(--bo
   background: var(--surface);
   border: 1px solid var(--border-strong);
   border-radius: 20px;
-  box-shadow: 0 28px 90px rgba(0,0,0,.26);
+  box-shadow: 0 28px 80px rgba(32,55,40,.1);
 }
 .playground-form { padding: 28px; border-right: 1px solid var(--border); }
 .form-heading { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
@@ -203,7 +203,7 @@ main > section:not(.hero) { padding-block: 112px; border-top: 1px solid var(--bo
   align-items: center;
   min-height: 50px;
   color: var(--muted);
-  background: #11171d;
+  background: var(--raised);
   border: 1px solid var(--border);
   border-radius: 10px;
   transition: border-color 180ms ease, background 180ms ease;
@@ -213,12 +213,12 @@ main > section:not(.hero) { padding-block: 112px; border-top: 1px solid var(--bo
 .segment-row label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .segment-row input { width: 100%; height: 48px; padding: 0 12px; color: var(--text); background: transparent; border: 0; outline: 0; font-family: "SFMono-Regular", Consolas, monospace; font-size: 13px; }
 .segment-row button { display: grid; width: 44px; height: 44px; padding: 0; place-items: center; color: var(--muted); background: transparent; border: 0; border-radius: 8px; cursor: pointer; transition: color 180ms ease, background 180ms ease; }
-.segment-row button:hover { color: var(--danger); background: rgba(255,123,114,.08); }
+.segment-row button:hover { color: var(--danger); background: rgba(180,35,24,.08); }
 .segment-row button svg { width: 18px; }
 .field-group { margin-top: 26px; }
 .field-group label { display: flex; justify-content: space-between; margin-bottom: 9px; font-size: 13px; font-weight: 650; }
 .field-group label span { color: var(--muted); font-family: "SFMono-Regular", monospace; font-size: 11px; font-weight: 500; }
-.field-group textarea { display: block; width: 100%; min-height: 96px; resize: vertical; padding: 13px 14px; color: var(--text); background: #11171d; border: 1px solid var(--border); border-radius: 10px; outline: 0; font-family: "SFMono-Regular", Consolas, monospace; font-size: 13px; line-height: 1.55; transition: border-color 180ms ease; }
+.field-group textarea { display: block; width: 100%; min-height: 96px; resize: vertical; padding: 13px 14px; color: var(--text); background: var(--raised); border: 1px solid var(--border); border-radius: 10px; outline: 0; font-family: "SFMono-Regular", Consolas, monospace; font-size: 13px; line-height: 1.55; transition: border-color 180ms ease; }
 .field-group textarea:focus { border-color: var(--accent); }
 .field-group textarea[aria-invalid="true"] { border-color: var(--danger); }
 .field-message { min-height: 20px; margin: 7px 0 0; color: var(--muted); font-size: 12px; }
@@ -231,10 +231,10 @@ main > section:not(.hero) { padding-block: 112px; border-top: 1px solid var(--bo
 .switch-row small { margin-top: 2px; color: var(--muted); font-size: 12px; }
 .switch-row input { appearance: none; position: relative; flex: 0 0 auto; width: 46px; height: 26px; margin: 0; background: var(--border-strong); border: 0; border-radius: 999px; cursor: pointer; transition: background 180ms ease; }
 .switch-row input::after { content: ""; position: absolute; top: 4px; left: 4px; width: 18px; height: 18px; background: var(--secondary); border-radius: 50%; transition: transform 180ms ease, background 180ms ease; }
-.switch-row input:checked { background: #2fc864; }
+.switch-row input:checked { background: var(--accent); }
 .switch-row input:checked::after { background: white; transform: translateX(20px); }
 
-.playground-output { display: flex; min-width: 0; flex-direction: column; background: #0b1015; }
+.playground-output { display: flex; min-width: 0; flex-direction: column; background: #f3f7f4; }
 .output-bar { display: flex; align-items: center; justify-content: space-between; min-height: 64px; padding: 0 24px; border-bottom: 1px solid var(--border); }
 .output-bar > span { display: inline-flex; align-items: center; gap: 9px; color: var(--secondary); font-family: "SFMono-Regular", monospace; font-size: 12px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; }
 .output-bar i { display: inline-block; }
@@ -243,7 +243,7 @@ main > section:not(.hero) { padding-block: 112px; border-top: 1px solid var(--bo
 #result-output { display: block; min-height: 156px; padding: 34px 28px; overflow-wrap: anywhere; color: var(--accent); border-bottom: 1px solid var(--border); font-family: "SFMono-Regular", Consolas, monospace; font-size: clamp(18px, 2.3vw, 26px); font-weight: 580; line-height: 1.45; }
 .code-preview { flex: 1; min-height: 330px; padding: 26px 28px; }
 .code-label { margin-bottom: 18px; color: var(--muted); font-family: "SFMono-Regular", monospace; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
-.code-preview pre { margin: 0; overflow-x: auto; color: #d6dee7; font-size: 12.5px; line-height: 1.75; white-space: pre-wrap; }
+.code-preview pre { margin: 0; overflow-x: auto; color: #26362c; font-size: 12.5px; line-height: 1.75; white-space: pre-wrap; }
 
 .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-block: 1px solid var(--border); }
 .feature-grid article { min-width: 0; padding: 32px; border-right: 1px solid var(--border); }
@@ -263,7 +263,7 @@ main > section:not(.hero) { padding-block: 112px; border-top: 1px solid var(--bo
 .text-link:hover span { transform: translateX(4px); }
 .api-card { overflow: hidden; background: var(--surface); border: 1px solid var(--border-strong); border-radius: 14px; }
 .api-signature { padding: 22px 24px; overflow-x: auto; border-bottom: 1px solid var(--border); font-size: 13px; white-space: nowrap; }
-.api-signature span:first-child { color: #c792ea; }
+.api-signature span:first-child { color: #6d28d9; }
 .api-signature span:last-child, .api-card dd code { color: var(--accent); }
 .api-card dl { margin: 0; padding: 8px 24px; }
 .api-card dl > div { display: grid; grid-template-columns: 150px 1fr; gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--border); }
@@ -278,7 +278,7 @@ main > .closing-section { display: flex; align-items: center; flex-direction: co
 .closing-section > p { margin-top: 18px; }
 footer { display: flex; align-items: center; justify-content: space-between; min-height: 108px; color: var(--muted); border-top: 1px solid var(--border); font-size: 12px; }
 footer .brand { color: var(--secondary); }
-.toast { position: fixed; z-index: 50; right: 24px; bottom: 24px; max-width: min(360px, calc(100vw - 48px)); padding: 12px 16px; color: var(--accent-ink); background: var(--accent); border-radius: 10px; box-shadow: 0 14px 50px rgba(0,0,0,.35); font-size: 13px; font-weight: 700; opacity: 0; pointer-events: none; transform: translateY(10px); transition: opacity 180ms ease, transform 180ms ease; }
+.toast { position: fixed; z-index: 50; right: 24px; bottom: 24px; max-width: min(360px, calc(100vw - 48px)); padding: 12px 16px; color: var(--accent-ink); background: var(--accent); border-radius: 10px; box-shadow: 0 14px 44px rgba(32,55,40,.2); font-size: 13px; font-weight: 700; opacity: 0; pointer-events: none; transform: translateY(10px); transition: opacity 180ms ease, transform 180ms ease; }
 .toast.is-visible { opacity: 1; transform: translateY(0); }
 noscript { display: block; padding: 16px; color: var(--accent-ink); background: var(--accent); text-align: center; }
 
