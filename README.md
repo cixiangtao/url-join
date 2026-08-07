@@ -225,10 +225,11 @@ pnpm type-check
 pnpm release:check
 ```
 
-Releases use a dedicated `release/vX.Y.Z` pull request. `pnpm release` prepares
-the version commit locally; after that exact PR merges, GitHub Actions creates
-the tag, publishes the inspected npm artifact through trusted publishing, and
-creates the matching GitHub Release. See [RELEASING.md](./RELEASING.md).
+Release Please automatically maintains a release pull request from changes merged
+into `master`. After a maintainer reviews its version, Changelog, and required CI
+and merges that exact PR, GitHub Actions creates the tag, publishes the inspected
+npm artifact through trusted publishing, and creates the matching GitHub Release.
+See [RELEASING.md](./RELEASING.md).
 
 ## License
 
