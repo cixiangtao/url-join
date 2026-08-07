@@ -225,7 +225,10 @@ pnpm type-check
 pnpm release:check
 ```
 
-Releases are created from `master` with `pnpm release`. The release command runs the complete quality gate, creates and pushes the release commit and tag, publishes the package to npm, and creates the matching GitHub Release.
+Releases use a dedicated `release/vX.Y.Z` pull request. `pnpm release` prepares
+the version commit locally; after that exact PR merges, GitHub Actions creates
+the tag, publishes the inspected npm artifact through trusted publishing, and
+creates the matching GitHub Release. See [RELEASING.md](./RELEASING.md).
 
 ## License
 
