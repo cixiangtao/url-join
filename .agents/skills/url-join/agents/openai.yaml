@@ -1,0 +1,6 @@
+interface:
+  display_name: "Url Join"
+  short_description: "Repo-specific patterns and workflows for url-join"
+  default_prompt: "Use the url-join repo skill to follow existing architecture, testing, and workflow conventions."
+policy:
+  allow_implicit_invocation: true
