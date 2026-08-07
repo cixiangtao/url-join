@@ -28,5 +28,7 @@ permissions. Its token lets required CI run unattended; PR checks created with t
 `GITHUB_TOKEN` currently wait for separate workflow approval.
 
 If delivery partially succeeds, inspect the merged release PR, workflow, tag, GitHub Release, and
-npm version before retrying the same workflow. Never recover with a local `npm publish` or a manual
-release tag.
+npm version first. Then manually run the release workflow from `master` with that merged Release
+Please PR number. Recovery revalidates the exact PR, merge commit, release-only diff, version,
+ancestry, tag, and registry state before resuming missing steps. Never recover with a local
+`npm publish` or a manual release tag.
