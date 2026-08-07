@@ -3,19 +3,20 @@
     "commitMessage": "chore: release v${version}",
     "tagName": "v${version}",
     "requireCleanWorkingDir": true,
-    "requireBranch": "master",
-    "requireCommits": true
+    "requireBranch": "release/v*",
+    "requireCommits": true,
+    "tag": false,
+    "push": false
   },
   "npm": {
     "publish": false
   },
   "github": {
-    "release": true,
-    "releaseName": "Release v${version}",
-    "autoGenerate": true
+    "release": false
   },
   "hooks": {
     "before:init": "pnpm release:check",
-    "after:git:release": "npm publish --access public"
+    "after:bump": "pnpm install --lockfile-only && test \"$(git branch --show-current)\" = \"release/v${version}\"",
+    "after:release": "echo Prepared release PR commit for ${name} v${version}"
   }
 }
