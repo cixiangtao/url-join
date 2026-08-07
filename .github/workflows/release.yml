@@ -220,7 +220,15 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           RELEASE_SHA: ${{ needs.gate.outputs.sha }}
         run: |
-          test "$(npm view "@anys/url-join@${VERSION}" version)" = "$VERSION"
+          for attempt in {1..12}; do
+            published_version="$(npm view "@anys/url-join@${VERSION}" version 2>/dev/null || true)"
+            [[ "$published_version" == "$VERSION" ]] && break
+            if [[ "$attempt" == 12 ]]; then
+              echo "@anys/url-join@${VERSION} did not become visible in the registry." >&2
+              exit 1
+            fi
+            sleep 5
+          done
           test "$(git ls-remote origin "refs/tags/${TAG}^{}" | awk '{print $1}')" = "$RELEASE_SHA"
           gh release view "$TAG" --json tagName,isDraft,isPrerelease,url
 
