@@ -1,39 +1,32 @@
 # Releasing @anys/url-join
 
-GitHub Actions is the sole npm and GitHub Release publisher. Local release-it
-commands only prepare release metadata for review.
+GitHub Actions is the only npm and GitHub Release publisher. Release Please automatically maintains
+the release pull request.
 
-## Contract
+## Normal flow
 
-- `package.json` owns the SemVer version.
-- Ordinary changes enter protected `master` through pull requests and required
-  checks. Unrelated open pull requests do not block a release.
-- The release branch must be exactly `release/vX.Y.Z` and its PR may change only
-  `package.json` and `pnpm-lock.yaml`.
-- The merged release PR is revalidated before `.github/workflows/release.yml`
-  creates `vX.Y.Z`, publishes the packed npm artifact, and creates a GitHub
-  Release with generated notes.
-- Stable versions move npm `latest`. Supported prerelease identifiers become
-  their npm dist-tag and GitHub prerelease state.
+1. Merge ordinary changes into protected `master` through pull requests and required checks.
+   Unrelated open pull requests do not block a release.
+2. Release Please updates one automated release PR from a
+   `release-please--branches--master--...` branch. Conventional commit or squash-merge titles
+   determine the proposed SemVer version and `CHANGELOG.md` (`fix` = patch, `feat` = minor, and
+   `!` or `BREAKING CHANGE` = major).
+3. Review the release-only diff, proposed version, changelog, and CI, then merge that PR when ready.
+4. `.github/workflows/release.yml` revalidates the exact merged PR, builds and packs once, creates
+   `vX.Y.Z`, publishes the inspected npm artifact, and creates the matching GitHub Release.
+5. Verify the workflow, tag target, GitHub Release state, npm version/dist-tags, and a fresh public
+   package install.
 
-## Prepare
+Stable versions move npm `latest`. Supported prerelease identifiers become their npm dist-tag and
+GitHub prerelease state. Do not bump versions, create tags, or publish from a workstation.
 
-1. Update `master` and ensure all intended ordinary PRs are merged.
-2. Create `release/vX.Y.Z` from that exact `master` head.
-3. Run `pnpm release:check` and preview with `pnpm release:dry <increment>`.
-4. Run `pnpm release <increment>`, where the increment is `patch`, `minor`,
-   `major`, or an explicit version.
-5. Push the branch and open a pull request into `master`.
+## Automation credentials and recovery
 
-release-it must not create a tag, push a release ref, publish npm, or create a
-GitHub Release locally.
+Define the Actions variable `RELEASE_APP_CLIENT_ID` and secret `RELEASE_APP_PRIVATE_KEY` for a
+GitHub App installed on this repository with Contents, Issues, and Pull requests read/write
+permissions. Its token lets required CI run unattended; PR checks created with the default
+`GITHUB_TOKEN` currently wait for separate workflow approval.
 
-## Publish and verify
-
-Merge the checked release PR. After the Action succeeds, verify the workflow,
-remote tag target, GitHub Release state, npm version and dist-tags, and a fresh
-install from the public package.
-
-If only some delivery steps succeed, inspect the existing tag, GitHub Release,
-and npm version before retrying the same merged-PR workflow. Never recover with
-a local `npm publish`.
+If delivery partially succeeds, inspect the merged release PR, workflow, tag, GitHub Release, and
+npm version before retrying the same workflow. Never recover with a local `npm publish` or a manual
+release tag.
