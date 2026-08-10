@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1](https://github.com/cixiangtao/url-join/compare/v1.3.0...v1.3.1) (2026-08-10)
+
+
+### Bug Fixes
+
+* **deps:** 🐛 keep Actions majors manual ([#10](https://github.com/cixiangtao/url-join/issues/10)) ([7662264](https://github.com/cixiangtao/url-join/commit/766226495935603ce33a2569c07794e1921531a4))
+
 ## [1.3.0](https://github.com/cixiangtao/url-join/compare/v1.2.1...v1.3.0) (2026-08-07)
 
 
